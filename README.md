@@ -2,3 +2,6 @@
 ecommerce backend microservices, redis streams
 
 ![architecture - diagram](./images/image.png)
+
+
+Redis Db with RediSearch and RedisJSON
