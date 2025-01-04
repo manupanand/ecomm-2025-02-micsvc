@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "ecomm-2025-02-micsvc"
+version = "0.1.0"
+description = "microservice"
+authors = ["manupanand"]
+license = "GNU 2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+fastapi = {extras = ["standard"], version = "^0.115.6"}
+redis-om = "^0.3.3"
+uvicorn = "^0.34.0"
+python-dotenv = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
