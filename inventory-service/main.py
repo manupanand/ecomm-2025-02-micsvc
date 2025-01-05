@@ -43,12 +43,35 @@ class Product(HashModel,ProductBase):
 @app.get("/")
 async def root():
     return {"message":"got main"}
+
 #fetch all products  primary keys
 @app.get('/products')
-async def all():
-    return Product.all_pks()# return all primary keys
+def all():
+    return [format(primary_key) for primary_key in Product.all_pks()]# return all products for primary keys
+#get the product based on id
+def format(primary_key:str):
+    
+    product=Product.get(primary_key)
+    return{
+        "id":product.pk,#pk product key redis-om attribute
+        "name":product.name,
+        "price":product.price,
+        "quantity":product.quantity
+    }
+
 #define post endpoint to  create  a new product
 @app.post('/products')
 def create(product:ProductBase):
     product_redis=Product(**product.dict())#save product in redis have to convert it to redis type 15.26
-    return {"message": "Product created", "product": product_redis.dict()}
+    product_redis.save()
+    return {"message": "Product created", "product": product_redis.dict()} 
+
+#get product with id
+@app.get('/product/{primary_key}')
+def get_with_id(primary_key:str):
+    return Product.get(primary_key)
+
+# delete product sing id
+@app.delete('/product/{primary_key}')
+def delete_product(primary_key:str):
+    return Product.delete(primary_key)
