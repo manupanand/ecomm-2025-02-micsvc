@@ -1,0 +1,4 @@
+.env
+.venv
+/inventory-service/__pycache__
+/payment-service/__pycache__

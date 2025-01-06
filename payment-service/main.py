@@ -25,3 +25,16 @@ app.add_middleware(
     allow_methods=['*'],
     allow_headers=['*']
 )
+#define structure of an order
+class OrderBase(BaseModel):
+    product_id:str
+    price:float
+    delivery_charge:float
+    total:float
+    quantity:int
+    status:str#pending, completed, refunded
+
+class Order(HashModel,OrderBase):
+
+    class Meta:
+        database=redis

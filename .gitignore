@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 /inventory/__pycache__
+/ops/terraform/env-dev
 # C extensions
 *.so
 /inventory-service/__pycache__
