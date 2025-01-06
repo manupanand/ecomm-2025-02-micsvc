@@ -11,10 +11,13 @@ Redis Db with RediSearch and RedisJSON
 
 ## Run the code locally for testing purpose
 - Inventory
+
         ```
          make inventory
+
         ```
 - Payment
+
     ```
         make payment
     ```
