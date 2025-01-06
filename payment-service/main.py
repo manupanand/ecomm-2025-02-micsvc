@@ -3,6 +3,8 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from redis_om import get_redis_connection,HashModel
 from dotenv import load_dotenv,find_dotenv
+from starlette.requests import Request
+import requests
 import os
 import uvicorn
 # Intitialize Fast api app
@@ -41,6 +43,22 @@ class Order(HashModel,OrderBase):
         database=redis
 
 
+@app.post('/orders')
+async def create_order(request:Request): #id and quantity we get it from inventory using request
+    body= await request.json()
+    #send request to microsercvice inventory
+    req= requests.get('http://localhost:3500/product/%s' % body['id'])# microservice calling internally change this to grpc
+    product= req.json()
+    order = Order(
+        product_id=body['id'],
+        price=product['price']*body['quantity'],
+        delivery_charge=0.2*product['price'],
+        total=1.2*product['price']*body['quantity'],
+        quantity=body['quantity'],
+        status="pending"
+    )
+    order.save()
+    return order
 
 
 
