@@ -13,9 +13,10 @@ Redis Db with RediSearch and RedisJSON
 - Inventory
 
         ```
-         make inventory
+            make inventory
 
         ```
+
 - Payment
 
     ```
