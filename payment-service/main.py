@@ -58,7 +58,13 @@ async def create_order(request:Request): #id and quantity we get it from invento
         status="pending"
     )
     order.save()
+    order_completed(order)
+
     return order
+
+def order_completed(order:Order):
+    order.status="completed"
+    order.save()
 
 
 
