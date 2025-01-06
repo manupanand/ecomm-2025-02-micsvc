@@ -75,3 +75,7 @@ def get_with_id(primary_key:str):
 @app.delete('/product/{primary_key}')
 def delete_product(primary_key:str):
     return Product.delete(primary_key)
+
+
+if __name__== "__main__":
+    uvicorn.run("main:app")

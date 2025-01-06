@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from redis_om import get_redis_connection,HashModel
 from dotenv import load_dotenv,find_dotenv
 import os
+import uvicorn
 # Intitialize Fast api app
 app:FastAPI=FastAPI()
 #load environment variable from .env
@@ -38,3 +39,12 @@ class Order(HashModel,OrderBase):
 
     class Meta:
         database=redis
+
+
+
+
+
+
+
+if __name__== "__main__":
+    uvicorn.run("main:app")
