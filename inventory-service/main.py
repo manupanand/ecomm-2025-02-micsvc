@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from redis_om import get_redis_connection,HashModel
 from dotenv import load_dotenv,find_dotenv
+import uvicorn
 import os
 # Intitialize Fast api app
 app:FastAPI=FastAPI()
