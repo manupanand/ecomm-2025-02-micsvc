@@ -25,3 +25,5 @@ assignees: '@manupanand'
 - [ ] Update the backend to use Redis Streams for event storage.
 - [ ] Write tests for Redis Streams functionality.
 
+# This issue is for my personal learning path not for contribution
+ - not open for  contributors now
