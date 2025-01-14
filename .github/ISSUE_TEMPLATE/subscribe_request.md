@@ -3,7 +3,7 @@ name: Implement Subscribe/Unsubscribe Service
 about: Add a subscription/unsubscription service to the project
 title: 'Implement Subscribe/Unsubscribe Service for Users'
 labels: enhancement, service
-assignees: '@manupanand'
+assignees: manupanand
 milestone: 'Version 1.0'
 estimate: 5
 ---
